@@ -1,4 +1,3 @@
-
 #include <ntddk.h>; 
 
 typedef unsigned long DWORD; 
