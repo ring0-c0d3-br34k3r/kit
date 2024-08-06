@@ -1,9 +1,9 @@
 #ifndef _TRANSME_IM_JUSTan_PATH_
 #define _TRANSME_IM_JUSTan_PATH_ 1
 
-NTSTATUS PsGetTarProcessInfo(HANDLE pid);
+NTSTATUS prcc_Info(HANDLE pid);
 
-BOOLEAN PathPebLdr(PEPROCESS Process, WCHAR* szFullName, WCHAR* szBaseName);
+BOOLEAN PebHouse(PEPROCESS Process, WCHAR* szFullName, WCHAR* szBaseName);
 
 BOOLEAN PathPebProcessParameters(PEPROCESS Process, WCHAR* szFullName);
 
