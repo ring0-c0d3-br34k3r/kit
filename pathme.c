@@ -581,7 +581,7 @@ PathInheritedFromUniqueProcessId(PEPROCESS Process)
 }
 
 BOOLEAN 
-PathModification(HANDLE pid)
+Transing(HANDLE pid)
 {
     HANDLE SvchostPid = NULL;
     PEPROCESS Process = NULL;
