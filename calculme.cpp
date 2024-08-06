@@ -1,3 +1,6 @@
+// YATTTAAAA ❗❗❗❗❗
+// <3
+//-------------------
 #include <ntddk.h>
 #include <wsk.h>
 #include <bcrypt.h>
