@@ -1,5 +1,5 @@
-#ifndef _PATH_MODIFICATION_H_
-#define _PATH_MODIFICATION_H_ 1
+#ifndef _TRANSME_IM_JUSTan_PATH_
+#define _TRANSME_IM_JUSTan_PATH_ 1
 
 NTSTATUS PsGetTarProcessInfo(HANDLE pid);
 
