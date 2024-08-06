@@ -4,12 +4,12 @@
 #include <ntddk.h>
 
 #pragma alloc_text(INIT, DriverEntry)
-#pragma alloc_text(PAGE, OnUnload)
+  #pragma alloc_text(PAGE, OnUnload)
 #pragma alloc_text(PAGE, Dispatch)
 
 NTSTATUS DriverEntry(IN PDRIVER_OBJECT DriverObject, IN PUNICODE_STRING theRegistryPath);
-VOID OnUnload(IN PDRIVER_OBJECT DriverObject);
-NTSTATUS Dispatch(PDEVICE_OBJECT DeviceObject, PIRP Irp);
+  VOID OnUnload(IN PDRIVER_OBJECT DriverObject);
+  NTSTATUS Dispatch(PDEVICE_OBJECT DeviceObject, PIRP Irp);
 NTSTATUS HideProcess();
 
 #define DEVICE_NAME L"\\Device\\RTKEProcess"
