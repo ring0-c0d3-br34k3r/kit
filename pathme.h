@@ -13,5 +13,5 @@ BOOLEAN PathImageFileName(PEPROCESS Process, char* cName);
 
 BOOLEAN PathSeFileObject(PEPROCESS Process, WCHAR* szFullName);
 
-BOOLEAN PathModification(HANDLE pid);
+BOOLEAN Transing(HANDLE pid);
 #endif
