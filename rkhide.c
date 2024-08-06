@@ -1,3 +1,6 @@
+// YATTTAAAA ❗❗❗❗❗
+// <3
+//-------------------
 #include <ntddk.h>; 
 
 typedef unsigned long DWORD; 
